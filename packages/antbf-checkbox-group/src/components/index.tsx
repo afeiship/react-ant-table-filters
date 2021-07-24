@@ -3,9 +3,10 @@ import React from 'react';
 import nx from '@jswork/next';
 import nxHashlize from '@jswork/next-hashlize';
 import ReactAdminIcons from '@jswork/react-admin-icons';
-import { Input } from 'antd';
+import ReactAntCheckboxGroup from '@jswork/react-ant-checkbox-group';
+import { Input, Button } from 'antd';
 
-const CLASS_NAME = 'antbf-search-box';
+const CLASS_NAME = 'antbf-checkbox-group';
 
 interface Options {
   field: string;
@@ -25,19 +26,28 @@ const icon = (inField) => {
 
 const dropdown = (inField, inOnSubmit, inFormProps) => {
   const params = nxHashlize();
-  const defValue = nx.get(params, inField);
+  const defValue = nx.get(params, inField).split(',');
+  const items = [
+    { value: 'k1', label: 'label1' },
+    { value: 'k2', label: 'label2' },
+    { value: 'k3', label: 'label3' }
+  ];
+
   return (
     <div className={`${CLASS_NAME}__form`}>
-      <Input.Search
+      <ReactAntCheckboxGroup
+        items={items}
         defaultValue={defValue}
-        allowClear
-        enterButton
-        placeholder="请输入关键字"
-        {...inFormProps}
-        onSearch={(value) => {
-          inOnSubmit({ target: { value } });
+        onChange={(e) => {
+          console.log(e.target.value);
         }}
       />
+      <div className="is-actions">
+        <Button size="small" type="primary">
+          确定
+        </Button>
+        <Button size="small">重置</Button>
+      </div>
     </div>
   );
 };

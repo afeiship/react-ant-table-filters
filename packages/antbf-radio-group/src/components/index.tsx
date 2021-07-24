@@ -3,9 +3,12 @@ import React from 'react';
 import nx from '@jswork/next';
 import nxHashlize from '@jswork/next-hashlize';
 import ReactAdminIcons from '@jswork/react-admin-icons';
-import { Input } from 'antd';
+import ReactAntRadioGroup from '@jswork/react-ant-radio-group';
+import RctplAntRadio from '@jswork/rctpl-ant-radio';
 
-const CLASS_NAME = 'antbf-search-box';
+import { Input, Button } from 'antd';
+
+const CLASS_NAME = 'antbf-raido-group';
 
 interface Options {
   field: string;
@@ -26,18 +29,28 @@ const icon = (inField) => {
 const dropdown = (inField, inOnSubmit, inFormProps) => {
   const params = nxHashlize();
   const defValue = nx.get(params, inField);
+  const items = [
+    { value: 'k1', label: 'label1' },
+    { value: 'k2', label: 'label2' },
+    { value: 'k3', label: 'label3' }
+  ];
+
   return (
     <div className={`${CLASS_NAME}__form`}>
-      <Input.Search
+      <ReactAntRadioGroup
+        items={items}
+        template={RctplAntRadio}
         defaultValue={defValue}
-        allowClear
-        enterButton
-        placeholder="请输入关键字"
-        {...inFormProps}
-        onSearch={(value) => {
-          inOnSubmit({ target: { value } });
+        onChange={(e) => {
+          console.log(e.target.value);
         }}
       />
+      <div className="is-actions">
+        <Button size="small" type="primary">
+          确定
+        </Button>
+        <Button size="small">重置</Button>
+      </div>
     </div>
   );
 };
