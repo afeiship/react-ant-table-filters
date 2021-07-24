@@ -1,3 +1,16 @@
-.antbf-radio-group{
-  color: red;
+.antbf-radio-group {
+  &__form {
+    padding: 10px;
+    min-width: 124px;
+    .ant-radio-wrapper {
+      display: flex;
+      margin-left: 0;
+    }
+
+    .is-actions{
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

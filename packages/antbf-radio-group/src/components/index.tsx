@@ -8,7 +8,7 @@ import RctplAntRadio from '@jswork/rctpl-ant-radio';
 
 import { Input, Button } from 'antd';
 
-const CLASS_NAME = 'antbf-raido-group';
+const CLASS_NAME = 'antbf-radio-group';
 
 interface Options {
   field: string;
