@@ -14,6 +14,9 @@ export default (props: any) => {
     icon: 'search',
     onSubmit: (event) => {
       console.log(event.target.value);
+      const { value } = event.target;
+      console.log('value:', value);
+      location.href = `/search?q=${value}`;
     }
   });
 

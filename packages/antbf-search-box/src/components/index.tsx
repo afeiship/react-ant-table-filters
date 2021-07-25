@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import nx from '@jswork/next';
 import nxHashlize from '@jswork/next-hashlize';
-import form2data from '@jswork/next-form2data';
 import { Input } from 'antd';
 import { GroupOptions } from '@jswork/antbf-types';
 import antbf from '@jswork/antbf-abstract';
@@ -13,16 +12,9 @@ export default class extends antbf.AntbfAbstract {
     const params = nxHashlize();
     const defValue = nx.get(params, inField);
     const { onChange, onSubmit, formProps, ctrlProps } = inOptions;
-    const handleSubmit = (inEvent) => {
-      const fd = new FormData(inEvent.target);
-      const obj = form2data(fd);
-      const value = obj[inField];
-      inEvent.preventDefault();
-      onSubmit({ target: { value } });
-    };
 
     return (
-      <form className={`${CLASS_NAME}__form`} onSubmit={handleSubmit} {...formProps}>
+      <div className={`${CLASS_NAME}__form`} {...formProps}>
         <Input.Search
           defaultValue={defValue}
           allowClear
@@ -34,7 +26,7 @@ export default class extends antbf.AntbfAbstract {
           }}
           {...ctrlProps}
         />
-      </form>
+      </div>
     );
   }
 }
