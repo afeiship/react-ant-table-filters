@@ -11,6 +11,7 @@ const Container = styled.div`
 
 export default (props: any) => {
   const filters = AntbfSearchBox.get('cg', {
+    icon: 'search',
     items: [
       { value: 'k1', label: 'label1' },
       { value: 'k2', label: 'label2' },

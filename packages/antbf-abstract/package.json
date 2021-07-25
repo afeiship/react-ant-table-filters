@@ -1,7 +1,7 @@
 {
-  "name": "@jswork/antbf-checkbox-group",
+  "name": "@jswork/antbf-abstract",
   "version": "1.0.0",
-  "description": "Checkbox group table filter for antd.",
+  "description": "Abstract components for table filters.",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/main.d.ts",
@@ -73,10 +73,11 @@
   },
   "dependencies": {
     "@jswork/filter-react-props": "^1.0.2",
+    "@jswork/next": "^1.0.7",
     "@jswork/next-form2data": "^1.0.1",
-    "@jswork/antbf-abstract":"^1.0.0",
+    "@jswork/next-hashlize": "^1.0.0",
     "@jswork/noop": "^1.0.0",
-    "@jswork/react-ant-checkbox-group": "^1.0.3",
+    "@jswork/react-admin-icons": "^1.0.0",
     "classnames": "^2.2.6"
   },
   "publishConfig": {

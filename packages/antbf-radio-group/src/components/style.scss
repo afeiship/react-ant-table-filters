@@ -1,7 +1,6 @@
 .antbf-radio-group {
   &__form {
     padding: 10px;
-    min-width: 124px;
     .ant-radio-wrapper {
       display: flex;
       margin-left: 0;
@@ -11,6 +10,9 @@
       margin-top: 10px;
       display: flex;
       justify-content: space-between;
+      .ant-btn {
+        width: 100%;
+      }
     }
   }
 }

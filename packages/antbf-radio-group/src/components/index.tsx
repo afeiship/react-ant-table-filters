@@ -2,6 +2,7 @@ import cx from 'classnames';
 import React from 'react';
 import nx from '@jswork/next';
 import nxHashlize from '@jswork/next-hashlize';
+import form2data from '@jswork/next-form2data';
 import ReactAdminIcons from '@jswork/react-admin-icons';
 import ReactAntRadioGroup from '@jswork/react-ant-radio-group';
 import RctplAntRadio from '@jswork/rctpl-ant-radio';
@@ -17,7 +18,8 @@ interface Options {
   ctrlProps?: any;
   formProps?: any;
 }
-const icon = (inField) => {
+
+const icon = (inField: string) => {
   const params = nxHashlize(location.hash);
   const actived = !!nx.get(params, inField);
   return (
@@ -27,50 +29,41 @@ const icon = (inField) => {
   );
 };
 
-const dropdown = (inField, inOnSubmit, inFormProps) => {
+const dropdown = (inField: string, inOptions: Options) => {
   const params = nxHashlize();
   const defValue = nx.get(params, inField);
-  const items = [
-    { value: 'k1', label: 'label1' },
-    { value: 'k2', label: 'label2' },
-    { value: 'k3', label: 'label3' }
-  ];
+  const { items, onSubmit, onChange } = inOptions;
+  const handleSubmit = (inEvent) => {
+    const fd = new FormData(inEvent.target);
+    const obj = form2data(fd);
+    const value = obj[inField];
+    inEvent.preventDefault();
+    onSubmit({ target: { value } });
+  };
 
   return (
-    <div className={`${CLASS_NAME}__form`}>
+    <form className={`${CLASS_NAME}__form`} onSubmit={handleSubmit}>
       <ReactAntRadioGroup
         items={items}
+        name={inField}
         template={RctplAntRadio}
         defaultValue={defValue}
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
+        onChange={onChange}
       />
       <div className="is-actions">
-        <Button size="small" type="primary">
+        <Button size="small" type="primary" htmlType="submit">
           确定
         </Button>
-        <Button size="small">重置</Button>
       </div>
-    </div>
+    </form>
   );
 };
 
 export default class {
-  private field;
-  private onSubmit;
-  private formProps;
-
-  constructor(options: Options) {
-    this.field = options.field;
-    this.onSubmit = options.onSubmit;
-    this.formProps = options.formProps;
-  }
-
-  generate() {
+  public static get(inField: string, inOptions: Options) {
     return {
-      filterIcon: icon(this.field),
-      filterDropdown: dropdown(this.field, this.onSubmit, this.formProps)
+      filterIcon: icon(inField),
+      filterDropdown: dropdown(inField, inOptions)
     };
   }
 }

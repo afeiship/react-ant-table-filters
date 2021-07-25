@@ -1,0 +1,15 @@
+{
+  "name": "@jswork/antbf-types",
+  "version": "1.0.0",
+  "description": "Ant table filter types.",
+  "homepage": "https://github.com/afeiship/react-ant-table-filters",
+  "main": "index.d.ts",
+  "author": {
+    "name": "afeiship",
+    "email": "1290657123@qq.com"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

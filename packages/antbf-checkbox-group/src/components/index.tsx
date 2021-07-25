@@ -6,28 +6,22 @@ import form2data from '@jswork/next-form2data';
 import ReactAdminIcons from '@jswork/react-admin-icons';
 import ReactAntCheckboxGroup from '@jswork/react-ant-checkbox-group';
 import { Button } from 'antd';
+import { GroupOptions } from '@jswork/antbf-types';
 
 const CLASS_NAME = 'antbf-checkbox-group';
 
-interface Options {
-  onSubmit: (event: any) => void;
-  items: any[];
-  onChange?: (event: any) => void;
-  ctrlProps?: any;
-  formProps?: any;
-}
-
-const icon = (inField: string) => {
+const icon = (inField: string, inOptions: GroupOptions) => {
   const params = nxHashlize(location.hash);
   const actived = !!nx.get(params, inField);
+  const { icon } = inOptions;
   return (
     <span className={cx({ 'is-active': actived })}>
-      <ReactAdminIcons value="search" />
+      <ReactAdminIcons value={icon} />
     </span>
   );
 };
 
-const dropdown = (inField: string, inOptions: Options) => {
+const dropdown = (inField: string, inOptions: GroupOptions) => {
   const { items, onChange, onSubmit, ctrlProps, formProps } = inOptions;
   const params = nxHashlize();
   const urlstr = nx.get(params, inField);
@@ -59,9 +53,9 @@ const dropdown = (inField: string, inOptions: Options) => {
 };
 
 export default class {
-  public static get(inField: string, inOptions: Options) {
+  public static get(inField: string, inOptions: GroupOptions) {
     return {
-      filterIcon: icon(inField),
+      filterIcon: icon(inField, inOptions),
       filterDropdown: dropdown(inField, inOptions)
     };
   }

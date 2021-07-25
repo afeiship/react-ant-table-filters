@@ -10,8 +10,7 @@ const Container = styled.div`
 `;
 
 export default (props: any) => {
-  const antbSearchBox = new AntbfSearchBox({
-    field: 'name',
+  const antbSearchBox = AntbfSearchBox.get('name', {
     onSubmit: (event) => {
       console.log(event.target.value);
     }
@@ -20,7 +19,7 @@ export default (props: any) => {
   const [items, setItems] = useState([]);
   const columns = [
     { key: 'id', dataIndex: 'id' },
-    { key: 'title', dataIndex: 'title', ...antbSearchBox.generate() }
+    { key: 'title', dataIndex: 'title', ...antbSearchBox }
   ];
 
   useEffect(() => {
