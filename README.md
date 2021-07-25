@@ -11,10 +11,10 @@ npm i @jswork/antbf-search-box
 
 ## usage
 ```jsx
-import AntbfSearchBox from '@jswork/antbf-search-box';
+import AntbfCheckboxGroup from '@jswork/antbf-checkbox-group';
 
 export default (props: any) => {
-  const filters = AntbfSearchBox.get('keywords', {
+  const filters = AntbfCheckboxGroup.get('keywords', {
     icon: 'search',
     items: [
       { value: 'k1', label: 'label1' },
