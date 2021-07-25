@@ -1,6 +1,6 @@
 {
   "name": "@jswork/antbf-checkbox-group",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Checkbox group table filter for antd.",
   "license": "MIT",
   "main": "dist/index.js",

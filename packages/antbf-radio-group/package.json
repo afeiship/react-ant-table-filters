@@ -1,6 +1,6 @@
 {
   "name": "@jswork/antbf-radio-group",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Radio group table filter for antd.",
   "license": "MIT",
   "main": "dist/index.js",
