@@ -1,6 +1,6 @@
 {
   "name": "@jswork/antbf-abstract",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Abstract components for table filters.",
   "license": "MIT",
   "main": "dist/index.js",
