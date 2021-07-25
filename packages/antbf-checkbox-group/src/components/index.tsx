@@ -10,7 +10,6 @@ import { Button } from 'antd';
 const CLASS_NAME = 'antbf-checkbox-group';
 
 interface Options {
-  field: string;
   onSubmit: (event: any) => void;
   items: any[];
   onChange?: (event: any) => void;
@@ -18,7 +17,7 @@ interface Options {
   formProps?: any;
 }
 
-const icon = (inField) => {
+const icon = (inField: string) => {
   const params = nxHashlize(location.hash);
   const actived = !!nx.get(params, inField);
   return (
@@ -28,7 +27,7 @@ const icon = (inField) => {
   );
 };
 
-const dropdown = (inField, inOptions) => {
+const dropdown = (inField: string, inOptions: Options) => {
   const { items, onChange, onSubmit, ctrlProps, formProps } = inOptions;
   const params = nxHashlize();
   const urlstr = nx.get(params, inField);
@@ -36,9 +35,9 @@ const dropdown = (inField, inOptions) => {
   const handleSubmit = (inEvent) => {
     const fd = new FormData(inEvent.target);
     const obj = form2data(fd);
-    const target = obj[inField];
+    const value = obj[inField];
     inEvent.preventDefault();
-    onSubmit({ target });
+    onSubmit({ target: { value } });
   };
 
   return (
@@ -54,41 +53,16 @@ const dropdown = (inField, inOptions) => {
         <Button size="small" type="primary" htmlType="submit">
           确定
         </Button>
-        <Button size="small" htmlType="reset">
-          重置
-        </Button>
       </div>
     </form>
   );
 };
 
 export default class {
-  private field;
-  private items;
-  private onSubmit;
-  private onChange;
-  private ctrlProps;
-  private formProps;
-
-  constructor(options: Options) {
-    this.field = options.field;
-    this.items = options.items;
-    this.onSubmit = options.onSubmit;
-    this.onChange = options.onChange;
-    this.ctrlProps = options.ctrlProps;
-    this.formProps = options.formProps;
-  }
-
-  generate() {
+  public static get(inField: string, inOptions: Options) {
     return {
-      filterIcon: icon(this.field),
-      filterDropdown: dropdown(this.field, {
-        items: this.items,
-        onSubmit: this.onSubmit,
-        onChange: this.onChange,
-        ctrlProps: this.ctrlProps,
-        formProps: this.formProps
-      })
+      filterIcon: icon(inField),
+      filterDropdown: dropdown(inField, inOptions)
     };
   }
 }

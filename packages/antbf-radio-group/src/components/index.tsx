@@ -6,16 +6,17 @@ import ReactAdminIcons from '@jswork/react-admin-icons';
 import ReactAntRadioGroup from '@jswork/react-ant-radio-group';
 import RctplAntRadio from '@jswork/rctpl-ant-radio';
 
-import { Input, Button } from 'antd';
+import { Button } from 'antd';
 
 const CLASS_NAME = 'antbf-radio-group';
 
 interface Options {
-  field: string;
   onSubmit: (event: any) => void;
+  items: any[];
+  onChange?: (event: any) => void;
+  ctrlProps?: any;
   formProps?: any;
 }
-
 const icon = (inField) => {
   const params = nxHashlize(location.hash);
   const actived = !!nx.get(params, inField);
