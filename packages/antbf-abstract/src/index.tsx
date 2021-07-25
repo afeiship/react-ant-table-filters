@@ -5,7 +5,7 @@ import nx from '@jswork/next';
 import nxHashlize from '@jswork/next-hashlize';
 import { GroupOptions } from '@jswork/antbf-types';
 
-const icon = (inField: string, inOptions: GroupOptions) => {
+export const icon = (inField: string, inOptions: GroupOptions) => {
   const params = nxHashlize(location.hash);
   const actived = !!nx.get(params, inField);
   const { icon } = inOptions;
@@ -16,7 +16,7 @@ const icon = (inField: string, inOptions: GroupOptions) => {
   );
 };
 
-export default class AntbfAbstract {
+export class AntbfAbstract {
   public static get(inField: string, inOptions: GroupOptions) {
     const instance = new this();
     return {

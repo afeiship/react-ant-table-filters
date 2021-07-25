@@ -1,3 +1,6 @@
-import AntbfAbstract from './index';
+import { icon, AntbfAbstract } from './index';
 
-export default AntbfAbstract;
+export default {
+  icon,
+  AntbfAbstract
+};

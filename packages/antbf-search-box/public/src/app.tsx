@@ -11,6 +11,7 @@ const Container = styled.div`
 
 export default (props: any) => {
   const antbSearchBox = AntbfSearchBox.get('name', {
+    icon: 'search',
     onSubmit: (event) => {
       console.log(event.target.value);
     }

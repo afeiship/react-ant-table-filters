@@ -11,6 +11,7 @@ const Container = styled.div`
 
 export default (props: any) => {
   const antbSearchBox = AntbfSearchBox.get('rg', {
+    icon: 'chat',
     items: [
       { value: 'k1', label: 'label1' },
       { value: 'k2', label: 'label2' },

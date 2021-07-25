@@ -2,8 +2,6 @@ import typescript from 'rollup-plugin-typescript2';
 import commonjs from 'rollup-plugin-commonjs';
 // import external from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
-import copy from 'rollup-plugin-copy';
-import scss from 'rollup-plugin-scss';
 import externals from 'rollup-plugin-node-externals';
 import banner from 'rollup-plugin-banner';
 import { terser } from 'rollup-plugin-terser';
@@ -17,7 +15,7 @@ export default [
     input: 'src/main.ts',
     output: {
       file: pkg.main,
-      format: 'umd',
+      format: 'esm',
       exports: 'named',
       sourcemap: false,
       name: 'AntbfAbstract',
