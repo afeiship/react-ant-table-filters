@@ -20,7 +20,7 @@ export class AntbfAbstract {
   public static get(inField: string, inOptions: GroupOptions) {
     const instance = new this();
     return {
-      filterIcon: icon(inField, inOptions),
+      filterIcon: () => icon(inField, inOptions),
       filterDropdown: instance.dropdown(inField, inOptions)
     };
   }
