@@ -13,7 +13,7 @@ const CLASS_NAME = 'antbf-radio-group';
 
 export default class extends antbf.AntbfAbstract {
   dropdown(inField: string, inOptions: GroupOptions): ReactNode {
-    const params = nxHashlize();
+    const params = nxHashlize(location.hash);
     const defValue = nx.get(params, inField);
     const { items, onSubmit, onChange } = inOptions;
     const handleSubmit = (inEvent) => {

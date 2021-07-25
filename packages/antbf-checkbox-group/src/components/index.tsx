@@ -12,7 +12,7 @@ const CLASS_NAME = 'antbf-checkbox-group';
 export default class extends antbf.AntbfAbstract {
   dropdown(inField: string, inOptions: GroupOptions): ReactNode {
     const { items, onChange, onSubmit, ctrlProps, formProps } = inOptions;
-    const params = nxHashlize();
+    const params = nxHashlize(location.hash);
     const urlstr = nx.get(params, inField);
     const defValue = urlstr ? urlstr.split(',') : [];
     const handleSubmit = (inEvent) => {
