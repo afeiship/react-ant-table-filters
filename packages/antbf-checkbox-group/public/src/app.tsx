@@ -12,6 +12,11 @@ const Container = styled.div`
 export default (props: any) => {
   const antbSearchBox = new AntbfSearchBox({
     field: 'cg',
+    items: [
+      { value: 'k1', label: 'label1' },
+      { value: 'k2', label: 'label2' },
+      { value: 'k3', label: 'label3' }
+    ],
     onSubmit: (event) => {
       console.log(event.target.value);
     }

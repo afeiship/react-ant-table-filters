@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@jswork/filter-react-props": "^1.0.2",
+    "@jswork/next-form2data": "^1.0.1",
     "@jswork/noop": "^1.0.0",
     "@jswork/react-ant-checkbox-group": "^1.0.3",
     "classnames": "^2.2.6"
