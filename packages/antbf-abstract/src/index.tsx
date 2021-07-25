@@ -10,7 +10,7 @@ export const icon = (inField: string, inOptions: GroupOptions) => {
   const actived = !!nx.get(params, inField);
   const { icon } = inOptions;
   return (
-    <span className={cx({ 'is-active': actived })}>
+    <span className={cx('antbf-icon', { 'is-active': actived })}>
       <ReactAdminIcons value={icon} />
     </span>
   );
