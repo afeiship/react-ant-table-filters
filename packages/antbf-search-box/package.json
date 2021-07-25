@@ -1,6 +1,6 @@
 {
   "name": "@jswork/antbf-search-box",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Table filter for search box.",
   "license": "MIT",
   "main": "dist/index.js",
