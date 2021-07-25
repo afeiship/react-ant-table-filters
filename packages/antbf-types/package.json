@@ -1,6 +1,6 @@
 {
   "name": "@jswork/antbf-types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Ant table filter types.",
   "homepage": "https://github.com/afeiship/react-ant-table-filters",
   "main": "index.d.ts",

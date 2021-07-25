@@ -1,6 +1,6 @@
 {
   "name": "@jswork/antbf-radio-group",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Radio group table filter for antd.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -74,8 +74,8 @@
     "vite-plugin-pwa": "^0.7.3"
   },
   "dependencies": {
-    "@jswork/antbf-abstract": "^1.0.1",
-    "@jswork/antbf-types": "^1.0.1",
+    "@jswork/antbf-abstract": "^1.0.2",
+    "@jswork/antbf-types": "^1.0.2",
     "@jswork/filter-react-props": "^1.0.2",
     "@jswork/next": "^1.0.7",
     "@jswork/next-form2data": "^1.0.1",
