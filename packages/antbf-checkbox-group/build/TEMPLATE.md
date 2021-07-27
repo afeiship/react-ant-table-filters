@@ -30,6 +30,9 @@ __GENERATE_DOCS__
 __GENERATE_DAPP__
   ```
 
+## preview
+- http://localhost:3000/#?cg=k1,k2
+
 ## license
 Code released under [the MIT license](https://github.com/afeiship/antbf-checkbox-group/blob/master/LICENSE.txt).
 
